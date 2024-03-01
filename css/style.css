@@ -17,7 +17,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
 }
 
 .logo {
@@ -25,9 +24,17 @@ header {
 }
 
 #container-cart {
-    position: absolute;
-    top: 0.1rem;
-    right: 2rem;
+    position: relative;
+}
+
+#container-cart a {
+    position: relative;
+    z-index: 10;
+}
+
+#container-cart a:hover {
+    background-color: #1a1a1a;
+    border-radius: 100%;
 }
 
 .container-icon {
@@ -37,38 +44,26 @@ header {
     width: 2.6rem;
     height: 2.6rem;
     border-radius: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 10;
 }
-.container-icon:hover {
-    background-color: #1a1a1a;
-}
+
 
 #icon-cart {
     width: 1.7rem;
+    color: #ffffff;
 }
 
 #count {
     width: 1.7rem;
     line-height: 2.55rem;
     text-align: center;
-    position: absolute;
-    right: 0.4rem;
     font-size: 0.9rem;
-}
-
-.cart-display-none {
-    display: none;
+    position: absolute;
+    top: 0;
+    right: 0.39rem;
 }
 
 #container-cart-products {
-    width: 33rem;
     padding: 0 0.5rem;
-    position: absolute;
-    right: 1.7rem;
-    top: 2.3rem;
     background-color: rgba(0, 0, 0, 0.918);
     border-radius: 0.5rem;
 }
@@ -76,11 +71,13 @@ header {
 .cart-product {
     display: grid;
     grid-template-columns: repeat(6, auto);
+    gap: 1rem;
     justify-content: space-between;
     align-items: center;
 }
 
 #text-cart-empty {
+    display: none;
     text-align: center;
     grid-column: span 6;
     padding: 0.5rem 0;

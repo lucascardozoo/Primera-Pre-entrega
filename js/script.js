@@ -139,7 +139,6 @@ if(cartLS) {
 }
 
 const containerProducts = document.getElementById('container-products');
-const cartContainer = document.getElementById("all-products-cart");
 
 function addToCardButton () {
     const addButton = document.querySelectorAll(".btnAgregarCarrito");
@@ -150,7 +149,7 @@ function addToCardButton () {
                 cart.forEach( product => {
                     if (product.id == productId) {
                         product.cantidad++;
-                        product.calcularSubTotal()
+                        product.subtotal = product.cantidad * product.precio
                     }
                 })
                 localStorage.setItem('cart', JSON.stringify(cart));
