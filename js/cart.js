@@ -39,7 +39,7 @@ function renderCarrito () {
         cartArticle.className = "cart-product";
         cartArticle.innerHTML = `
         <figure class="container-img-cart-product">
-            <img class="img-cart-product" src="./assets/${item.imagen}" alt="${item.nombre}">
+            <img class="img-cart-product" src="../assets/${item.imagen}" alt="${item.nombre}">
         </figure>
         <h2 class="name-cart-product">${item.nombre}</h2>
         <p class="precio-cart-product">${item.precio}</p>
@@ -59,7 +59,7 @@ function renderCarrito () {
 }
 
 //Invoco renderCarrito() pero si no hay nada para renderizar en el Local Storage, se muestra "Carrito vacio"
-function showCarritoVacio () {
+function ifCarritoVacio () {
     const toRender = jsonParseLocalStorage();
     if (!toRender) {
         cartEmpty.style.display = 'block';
@@ -67,7 +67,7 @@ function showCarritoVacio () {
         renderCarrito();
     }
 }
-showCarritoVacio();
+ifCarritoVacio();
 
 //Para el boton que dice "Vaciar" en el carrito, borra todo el carrito
 function clearCart () {
@@ -95,6 +95,12 @@ function eliminarProducto (e) {
         toRender = toRender.filter((product) => product.id !== productId);
         saveProductLocalStorage(toRender);
         renderCarrito();
+        
+    }
+
+    const toRender = jsonParseLocalStorage();
+    if (toRender.length === 0) {
+        cartEmpty.style.display = 'block';
     }
 }
 cartContainer.addEventListener('click', eliminarProducto);
