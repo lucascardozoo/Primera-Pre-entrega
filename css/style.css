@@ -206,7 +206,7 @@ main {
 }
 
 label {
-    fon0.95-size: 0.95rem;
+    font-size: 0.95rem;
 }
 
 #user-name {
