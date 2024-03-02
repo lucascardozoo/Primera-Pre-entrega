@@ -78,6 +78,7 @@ header {
 
 #text-cart-empty {
     display: none;
+    min-width: 28.5rem;
     text-align: center;
     grid-column: span 6;
     padding: 0.5rem 0;
