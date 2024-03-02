@@ -61,7 +61,7 @@ function renderCarrito () {
 //Invoco renderCarrito() pero si no hay nada para renderizar en el Local Storage, se muestra "Carrito vacio"
 function ifCarritoVacio () {
     const toRender = jsonParseLocalStorage();
-    if (!toRender) {
+    if (!toRender || toRender.length === 0) {
         cartEmpty.style.display = 'block';
     } else {
         renderCarrito();
