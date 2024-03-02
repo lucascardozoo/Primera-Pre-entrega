@@ -20,6 +20,12 @@ header {
     align-items: center;
 }
 
+#saludo {
+    margin-top: 0.4rem;
+    margin-right: 3.75rem;
+    font-size: 1.9rem;   
+}
+
 #logo {
     font-size: 2rem;
     color: #ffffff;
@@ -188,4 +194,32 @@ main {
 
 .btnAgregarCarrito:hover {
     background-color: #e7e7e7;
+}
+
+#container-saludo {
+    min-width: 30rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.301);
+    margin: 1rem 0;
+}
+
+label {
+    fon0.95-size: 0.95rem;
+}
+
+#user-name {
+    font-size: 0.95rem;
+    border-radius: 0.3rem;
+}
+
+#btn-saludo {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 0.13rem 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
 }

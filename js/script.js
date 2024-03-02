@@ -74,6 +74,9 @@ class product {
 
 const containerProducts = document.getElementById('container-products');
 const cantidadCart = document.getElementById('count');
+const inputNombre = document.querySelector('#user-name');
+const btnSaludo = document.querySelector('#btn-saludo');
+const textSaludo = document.querySelector('#saludo');
 
 //Para que no perder info de los productos agregados, tambien para no perder la cantidad total que se ve el icono del carrito
 let cart;
@@ -84,6 +87,15 @@ if(cartLS) {
 } else {
     cart = [];
 }
+
+//Si existe un nombre en Local Storage lo recupera y saluda
+function recuperoNombreDeLS () {
+    let nombre = localStorage.getItem("nombre");
+    if (nombre) {
+        textSaludo.innerHTML = `Hola ${nombre}`;
+    }
+}
+recuperoNombreDeLS();
 
 //Para guardar en el Local Storage
 function saveProductLocalStorage () {
@@ -118,7 +130,7 @@ function addToCardButton () {
                 cart.push(productToCart);
                 saveProductLocalStorage();
             }
-            sumaCantidadCart();       
+            sumaCantidadCart();   
         }
     })
 }
@@ -141,3 +153,12 @@ function renderProducts () {
     addToCardButton();
 }
 renderProducts();
+
+btnSaludo.onclick = () => {
+    if (inputNombre.value) {
+        textSaludo.innerHTML = `Hola ${inputNombre.value}`
+        localStorage.setItem('nombre', inputNombre.value);
+    } else {
+        textSaludo.innerText = "Debe ingresar su nombre";
+    }
+}

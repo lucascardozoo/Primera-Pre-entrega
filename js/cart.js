@@ -2,6 +2,7 @@ const cartContainer = document.getElementById("all-products-cart");
 const cartEmpty = document.querySelector('#text-cart-empty');
 const total = document.querySelector('#total');
 const cantidadCart = document.getElementById('count');
+const textSaludo = document.querySelector('#saludo');
 
 // Para parsear lo que este en el Local Stotage
 function jsonParseLocalStorage () {
@@ -29,6 +30,15 @@ function sumaTotalCart () {
     const totalCart = toRender.reduce((acumulador, producto) => acumulador + producto.subtotal, 0);
     total.innerHTML = `Total: $${totalCart}`;
 }
+
+//Para recuperar nombre del Local Storage y quede el carrito con el nombre ingresado en la pagina de inicio
+function recuperoNombreDeLS () {
+    let nombre = localStorage.getItem("nombre");
+    if (nombre) {
+        textSaludo.innerHTML = `Hola ${nombre}`;
+    }
+}
+recuperoNombreDeLS();
 
 //Para renderizar el carrito, sacando los productos del Local Storage, que se agregaros al hacer click en el boton "Agregar al carrito"
 function renderCarrito () {
@@ -73,7 +83,7 @@ ifCarritoVacio();
 function clearCart () {
     const clearButton = document.getElementById("btn-clear");
     clearButton.onclick = () => {
-        localStorage.clear();
+        localStorage.removeItem('cart');
         cantidadCart.innerHTML = 0;
         total.innerHTML = 'Total: $0';
         limpiarHTML();
