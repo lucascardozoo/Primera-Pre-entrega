@@ -1,63 +1,4 @@
-// const productos = [];
-// let totalGeneral = 0;
-// let lista = 'Carrito:\n';
-
-// const totales = (precio, cantidad) => {
-//     let total = precio * cantidad;
-//     totalGeneral += total;
-
-//     return total;
-// }
-
-// const addLista = producto => lista += '\nProducto: ' + producto.nombre + ' | Precio: $' + producto.precio + ' | Cantidad: ' + producto.cantidad + ' |   Total: $' +producto.total;
-
-// const mostrarLista = () => {
-//     lista += '\n\nTotal del carrito: $' + totalGeneral;
-//     console.log(lista);
-//     alert(lista);
-// }
-
-// function addProducts(contador) {
-//     const nombre = prompt('Ingrese nombre del producto');
-//     const precio = parseFloat(prompt('Ingrese precio del producto'));
-//     const cantidad = parseInt(prompt('Ingrese cantidad del producto'));
-//     const total = totales(precio, cantidad);
-
-//     const producto = {nombre, precio, cantidad, total};
-//     console.log(producto);
-//     addLista(producto);
-
-//     productos.push(producto);
-//     if (productos.indexOf(producto) === 0 && productos.indexOf(producto) !== -1) {
-//         console.log('Se agrego exitosamente un producto al carrito');
-//         alert('Se agrego exitosamente un producto al carrito');
-//         for (const producto of productos) {
-//             console.table(producto);
-//         }
-//     } else if (productos.indexOf(producto) === contador && productos.indexOf(producto) !== -1) {
-//         console.log('Se agrego exitosamente otro producto al carrito');
-//         alert('Se agrego exitosamente otro producto al carrito');
-//         for (const producto of productos) {
-//             console.table(producto);
-//         }
-//     }
-// }
-
-// function carrito() {
-//     let contador = 0;
-//     let confirmacion = confirm('¿Desea agregar un producto al carrito?');
-//     while (confirmacion) {
-//         addProducts(contador);
-//         contador++;
-//         confirmacion = confirm('¿Desea agregar otro producto al carrito?');
-//     }
-
-//     mostrarLista();
-// }
-
-// carrito();
-
-
+//Array de objetos para renderizar los productos que se pueden agregar la carrito
 const products = [
     {
         id: 1,
@@ -115,6 +56,7 @@ const products = [
     },
 ]
 
+//Para instanciar los productos que se agregan al carrito
 class product {
     constructor (id, imagen, nombre, precio) {
         this.id = id;
@@ -129,30 +71,32 @@ class product {
         this.subtotal = this.precio * this.cantidad;
     }
 }
+
 const containerProducts = document.getElementById('container-products');
 const cantidadCart = document.getElementById('count');
 
+//Para que no perder info de los productos agregados, tambien para no perder la cantidad total que se ve el icono del carrito
 let cart;
 let cartLS = localStorage.getItem("cart");
 if(cartLS) {
     cart = JSON.parse(cartLS);
-    cantidadCart.innerHTML = cart.reduce((acumulador, producto) => acumulador + producto.cantidad, 0)
+    cantidadCart.innerHTML = cart.reduce((acumulador, producto) => acumulador + producto.cantidad, 0);
 } else {
     cart = [];
 }
-console.log(cart)
 
-
-
+//Para guardar en el Local Storage
 function saveProductLocalStorage () {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
+//Para que me muestre el total de productos agregados en el icono del carrito
 function sumaCantidadCart () {
-    let cantidadTotalCart = cart.reduce((acumulador, producto) => acumulador + producto.cantidad, 0)
+    let cantidadTotalCart = cart.reduce((acumulador, producto) => acumulador + producto.cantidad, 0);
     cantidadCart.innerHTML = cantidadTotalCart;
 }
 
+//Botones para agregar al carrito o sumar uno a la cantidad del producto si ya existe y guardar en el Local Storage
 function addToCardButton () {
     const addButton = document.querySelectorAll(".btnAgregarCarrito");
     addButton.forEach(button => {
@@ -162,11 +106,10 @@ function addToCardButton () {
                 cart.forEach( product => {
                     if (product.id == productId) {
                         product.cantidad++;
-                        product.subtotal = product.cantidad * product.precio
+                        product.subtotal = product.cantidad * product.precio;
                     }
                 })
                 saveProductLocalStorage();
-                console.log(cart)
             } else {
                 const searchProduct = products.find( product => product.id == productId);
                 const productToCart = new product (searchProduct.id, searchProduct.imagen, searchProduct.nombre, searchProduct.precio);
@@ -174,13 +117,13 @@ function addToCardButton () {
                 
                 cart.push(productToCart);
                 saveProductLocalStorage();
-                console.log(cart)
-            } 
-            sumaCantidadCart()         
+            }
+            sumaCantidadCart();       
         }
     })
 }
 
+//Para renderizar productos que se pueden agregar al carrito, renderiza el array de objetos "products" creado con anteriroidad
 function renderProducts () {
     products.forEach( product => {
         const article = document.createElement("article");
@@ -195,8 +138,6 @@ function renderProducts () {
         `;
         containerProducts.appendChild(article);
     })
-
     addToCardButton();
 }
-
 renderProducts();
