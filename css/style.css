@@ -209,6 +209,7 @@ main {
     align-items: center;
     background-color: rgba(0, 0, 0, 0.301);
     margin: 1rem 0;
+    border-radius: 0.5rem;
 }
 
 label {

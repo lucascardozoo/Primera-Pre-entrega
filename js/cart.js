@@ -35,7 +35,7 @@ function sumaTotalCart () {
 function recuperoNombreDeLS () {
     let nombre = localStorage.getItem("nombre");
     if (nombre) {
-        textSaludo.innerHTML = `Hola ${nombre}`;
+        textSaludo.innerHTML = `Carrito de ${nombre}`;
     }
 }
 recuperoNombreDeLS();
