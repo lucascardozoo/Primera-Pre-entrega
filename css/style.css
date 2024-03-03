@@ -17,13 +17,16 @@ header {
     padding: 0 2rem;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
 #saludo {
-    margin-top: 0.4rem;
-    margin-right: 3.75rem;
-    font-size: 1.9rem;   
+    font-size: 2rem;
+    min-width: 7rem;
+    text-align: center;
+}
+
+#container-logo {
+    min-width: 7rem;
 }
 
 #logo {
@@ -31,43 +34,42 @@ header {
     color: #ffffff;
 }
 
+#logo:hover {
+    color: #dfdfdf;
+}
+
+
 #container-cart {
+    min-width: 7rem;
+    display: flex;
+    justify-content: end;
+    align-items: center;
     position: relative;
-}
-
-#container-cart a {
-    position: relative;
-    z-index: 10;
-}
-
-#container-cart a:hover {
-    background-color: #1a1a1a;
-    border-radius: 100%;
+    padding: 0.1rem;
 }
 
 .container-icon {
+    width: 2rem;
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 2.6rem;
-    height: 2.6rem;
-    border-radius: 100%;
 }
 
-
 #icon-cart {
-    width: 1.7rem;
-    color: #ffffff;
+    width: 100%;
+    color: #bdbdbd;
+}
+
+#icon-cart:hover {
+    color: #a0a0a0;
 }
 
 #count {
-    width: 1.7rem;
-    line-height: 2.55rem;
-    text-align: center;
-    font-size: 0.9rem;
+    background-color: rgba(0, 0, 0, 0.644);
+    color: #ffffff;
+    font-size: 1rem;
     position: absolute;
-    top: 0;
-    right: 0.39rem;
+    right: 0;
+    bottom: 0;
 }
 
 #container-cart-products {
@@ -90,7 +92,7 @@ header {
     text-align: center;
     grid-column: span 6;
     padding: 0.5rem 0;
-    border-bottom: 0.1rem solid white;
+    border-bottom: 0.1rem solid #ffffff;
 }
 
 .container-img-cart-product {
@@ -137,6 +139,10 @@ header {
     font-weight: 800;
     border-radius: 0.5rem;
     margin: 0.5rem 0;
+}
+
+#btn-clear:hover {
+    background-color: #dfdfdf;
 }
 
 main {
@@ -193,7 +199,7 @@ main {
 }
 
 .btnAgregarCarrito:hover {
-    background-color: #e7e7e7;
+    background-color: #dfdfdf;
 }
 
 #container-saludo {
@@ -222,4 +228,8 @@ label {
     padding: 0.13rem 0.5rem;
     border-radius: 0.5rem;
     border: none;
+}
+
+#btn-saludo:hover {
+    background-color: #dfdfdf;
 }
