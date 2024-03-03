@@ -14,9 +14,10 @@ body {
 
 header {
     margin-top: 1rem;
-    padding: 0 2rem;
+    padding: 0 1.5rem 0 2rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 #saludo {
@@ -41,6 +42,7 @@ header {
 
 #container-cart {
     min-width: 7rem;
+    height: 4rem;
     display: flex;
     justify-content: end;
     align-items: center;
@@ -52,21 +54,26 @@ header {
     width: 2rem;
     display: flex;
     align-items: center;
+    margin-right: 0.5rem;
 }
 
 #icon-cart {
     width: 100%;
-    color: #bdbdbd;
+    color: #ffffff;
 }
 
 #icon-cart:hover {
-    color: #a0a0a0;
+    color: #dfdfdf;
 }
 
 #count {
-    background-color: rgba(0, 0, 0, 0.644);
+    background-color: rgba(0, 0, 0, 0.445);
+    border-radius: 50%;
     color: #ffffff;
     font-size: 1rem;
+    text-align: center;
+    width: 1.5rem;
+    height: 1.5rem;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -80,10 +87,11 @@ header {
 
 .cart-product {
     display: grid;
-    grid-template-columns: repeat(2, auto) minmax(6rem, auto) minmax(4rem, auto) minmax(6rem, auto) auto;
+    grid-template-columns: auto minmax(30rem, auto) minmax(6rem, auto) minmax(4rem, auto) minmax(6rem, auto) auto;
     gap: 1rem;
     justify-content: space-between;
     align-items: center;
+    margin: 0.5rem 0;
 }
 
 #text-cart-empty {
@@ -109,7 +117,6 @@ header {
 .name-cart-product, .precio-cart-product, .cantidad-cart-product, .subtotal-cart-product{
     font-size: 1rem;
     font-weight: 600;
-    text-align: center;
 }
 
 .btn-remove, .btn-suma, .btn-resta {
@@ -169,7 +176,7 @@ main {
 
 .product {
     background-color: rgb(0, 0, 0);
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
     border: 0.1rem solid white;
@@ -177,29 +184,49 @@ main {
 
 .img-card-product {
     width: 100%;
-    border-radius: 1rem 1rem 0 0;
+    border-radius: 0.5rem 0.5rem 0 0;
 }
 
-.name-card-product, .precio-card-product {
+.body-product {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.name-card-product {
+    flex-grow: 1;
     padding-left: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.precio-card-product {
+    padding-left: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
 .btnAgregarCarrito {
     margin-top: 0.5rem;
     border: none;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     background-color: white;
     color: black;
     width: 100%;
-    height: 2rem;
     align-self: center;
     font-size: 1rem;
     font-weight: 700;
     border: 0.1rem solid white;
+    padding: 0.25rem 0;
 }
 
 .btnAgregarCarrito:hover {
     background-color: #dfdfdf;
+}
+
+.btnAgregarCarrito:active {
+    background-color: #a0a0a0;
+    border-color: #a0a0a0;
 }
 
 #container-saludo {

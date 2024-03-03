@@ -2,57 +2,81 @@
 const products = [
     {
         id: 1,
-        imagen: "computadora.jpg",
-        nombre: "Computadora 1",
-        precio: 300000
+        imagen: "procesador.jpg",
+        nombre: "Procesador Intel i5 14400F",
+        precio: 319900
     },
     {
         id: 2,
-        imagen: "computadora.jpg",
-        nombre: "Computadora 2",
-        precio: 400000
+        imagen: "mother.jpg",
+        nombre: "Mother ASUS TUF GAMING B660M-PLUS",
+        precio: 213750
     },
     {
         id: 3,
-        imagen: "computadora.jpg",
-        nombre: "Computadora 3",
-        precio: 500000
+        imagen: "placa-de-video.jpg",
+        nombre: "Placa de Video MSI GeForce RTX 4080 16GB",
+        precio: 1648710
     },
     {
         id: 4,
-        imagen: "computadora.jpg",
-        nombre: "Computadora 4",
-        precio: 600000
+        imagen: "ram.jpg",
+        nombre: "Memoria Team DDR4 16GB (2x8GB) 3200MHz",
+        precio: 62300
     },
     {
         id: 5,
-        imagen: "computadora.jpg",
-        nombre: "Computadora 5",
-        precio: 700000
+        imagen: "disco-m.2.jpg",
+        nombre: "Disco SSD M.2 500GB WD_Black 5000MB/s NVMe",
+        precio: 69990
     },
     {
         id: 6,
-        imagen: "computadora.jpg",
-        nombre: "Computadora 6",
-        precio: 800000
+        imagen: "disco-ssd.jpg",
+        nombre: "Disco Sólido SSD Kingston 960GB A400 500MB/s",
+        precio: 71700
     },
     {
         id: 7,
-        imagen: "computadora.jpg",
-        nombre: "Computadora 7",
-        precio: 900000
+        imagen: "cooler-cpu.jpg",
+        nombre: "Cooler CPU Cooler Master ML360 Water Cooling",
+        precio: 235859
     },
     {
         id: 8,
-        imagen: "computadora.jpg",
-        nombre: "Computadora 8",
-        precio: 1000000
+        imagen: "gabinete.jpg",
+        nombre: "Gabinete Cooler Master HAF 700",
+        precio: 377900
     },
     {
         id: 9,
-        imagen: "computadora.jpg",
-        nombre: "Computadora 9",
-        precio: 1100000
+        imagen: "fuente.jpg",
+        nombre: "Fuente Corsair 750W 80 Plus Gold RM750X Full Modular",
+        precio: 151990
+    },
+    {
+        id: 10,
+        imagen: "monitor.jpg",
+        nombre: "Monitor Gamer AOC 27¨",
+        precio: 335000
+    },
+    {
+        id: 11,
+        imagen: "auriculares.jpg",
+        nombre: "Auriculares HyperX Cloud Flight Black Wireless",
+        precio: 113000
+    },
+    {
+        id: 12,
+        imagen: "teclado.jpg",
+        nombre: "Teclado Mecanico HyperX Alloy Elite 2 Switch Red LA",
+        precio: 141250
+    },
+    {
+        id: 13,
+        imagen: "teclado.jpg",
+        nombre: "Mouse Logitech G502 Gaming Hero",
+        precio: 79900
     },
 ]
 
@@ -144,9 +168,11 @@ function renderProducts () {
         <figure>
             <img class="img-card-product" src="./assets/${product.imagen}" alt="${product.nombre}">
         </figure>
-        <h2 class="name-card-product">${product.nombre}</h2>
-        <p class="precio-card-product">$${product.precio}</p>
-        <button id="${product.id}" class="btnAgregarCarrito">Agregar al carrito</button>
+        <div class="body-product">
+            <h2 class="name-card-product">${product.nombre}</h2>
+            <p class="precio-card-product">$${product.precio}</p>
+            <button id="${product.id}" class="btnAgregarCarrito">Agregar al carrito</button>
+        </div>
         `;
         containerProducts.appendChild(article);
     })
