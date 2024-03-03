@@ -74,7 +74,7 @@ const products = [
     },
     {
         id: 13,
-        imagen: "teclado.jpg",
+        imagen: "mouse.jpg",
         nombre: "Mouse Logitech G502 Gaming Hero",
         precio: 79900
     },
