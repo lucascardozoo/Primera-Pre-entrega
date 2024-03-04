@@ -17,6 +17,7 @@
             <img id="logo" src="../assets/logo.png" alt="logo">
         </a>
 
+        <!-- Aca esta solo el logo del carrito con el contador de productos agregados -->
         <div id="container-cart">
             <a href="../page-cart/carrito.html">
                 <figure class="container-icon">
@@ -30,13 +31,18 @@
     </header>
     
     <main>
+        <!-- Se modifica con el Nombre ateriormente ingresado por Input -->
         <h2 id="saludo">Tu Carrito</h2>
 
         <section id="container-cart-products">
                 <p id="text-cart-empty">Carrito vacio</p>
+
+                <!-- Aca se van renderizando todos los productos agregados al carrito -->
                 <table id="all-products-cart">
 
                 </table>
+                
+                <!-- Aca se ve la suma total del carito y el boton para vaciar todo -->
                 <div class="footer-cart">
                     <h2 id="total">Total: $0</h2>
                     <button id="btn-clear" type="button">Vaciar</button>
