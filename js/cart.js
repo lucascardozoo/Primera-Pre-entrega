@@ -57,26 +57,16 @@ function renderCarrito () {
                     <img class="img-cart-product" src="../assets/${item.imagen}" alt="${item.nombre}">
                 </figure>
             </td>
-<<<<<<< HEAD
             <td class="precio-cart-product td-pad-border">$${item.precio}</td>
             <td class="td-pad-border">
-=======
-            <td class="precio-cart-product tr-pad-border">$${item.precio}</td>
-            <td class="tr-pad-border">
->>>>>>> 51919951b80e084517e240869f4f45e988b395cc
                 <div class="cantidad-cart-product">
                     <button id="${item.id}" class="btn-resta" type="button">-</button>
                     <span>${item.cantidad}</span>
                     <button id="${item.id}" class="btn-suma" type="button">+</button>
                 </div> 
             </td>
-<<<<<<< HEAD
             <td class="td-pad-border subtotal-cart-product">$${item.subtotal}</td>
             <td class="td-pad-border">
-=======
-            <td class="subtotal-cart-product tr-pad-border">$${item.subtotal}</td>
-            <td class="tr-pad-border">
->>>>>>> 51919951b80e084517e240869f4f45e988b395cc
                 <button id="${item.id}" class="btn-remove" type="button">x</button>
             </td>
         </tr>
