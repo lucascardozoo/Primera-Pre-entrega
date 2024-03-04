@@ -45,21 +45,31 @@ function renderCarrito () {
     limpiarHTML();
     const toRender = jsonParseLocalStorage();
     toRender.forEach( item => {
-        const cartArticle = document.createElement("article");
+        const cartArticle = document.createElement("tbody");
         cartArticle.className = "cart-product";
         cartArticle.innerHTML = `
-        <figure class="container-img-cart-product">
-            <img class="img-cart-product" src="../assets/${item.imagen}" alt="${item.nombre}">
-        </figure>
-        <h2 class="name-cart-product">${item.nombre}</h2>
-        <p class="precio-cart-product">${item.precio}</p>
-        <div class="cantidad-cart-product">
-            <button id="${item.id}" class="btn-resta" type="button">-</button>
-            <span>${item.cantidad}</span>
-            <button id="${item.id}" class="btn-suma" type="button">+</button>
-        </div>
-        <p class="subtotal-cart-product">${item.subtotal}</p>
-        <button id="${item.id}" class="btn-remove" type="button">x</button>
+        <tr>
+            <td colspan="5" class="name-cart-product">${item.nombre}</td>
+        </tr>
+        <tr>
+            <td class="td-img tr-pad-border">
+                <figure class="container-img-cart-product">
+                    <img class="img-cart-product" src="../assets/${item.imagen}" alt="${item.nombre}">
+                </figure>
+            </td>
+            <td class="precio-cart-product tr-pad-border">${item.precio}</td>
+            <td class="tr-pad-border">
+                <div class="cantidad-cart-product">
+                    <button id="${item.id}" class="btn-resta" type="button">-</button>
+                    <span>${item.cantidad}</span>
+                    <button id="${item.id}" class="btn-suma" type="button">+</button>
+                </div> 
+            </td>
+            <td class="subtotal-cart-product tr-pad-border">${item.subtotal}</td>
+            <td class="tr-pad-border">
+                <button id="${item.id}" class="btn-remove" type="button">x</button>
+            </td>
+        </tr>
         `;
         cartContainer.appendChild(cartArticle);
     })
