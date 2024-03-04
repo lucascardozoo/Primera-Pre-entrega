@@ -19,7 +19,7 @@ body {
 
 /* HEADER */
 header {
-    margin-top: 1rem;
+    margin: 1rem 0;
     padding: 0 1.5rem 0 2rem;
     display: flex;
     justify-content: space-between;
@@ -47,6 +47,7 @@ header {
 #saludo {
     font-size: 1.5rem;
     text-align: center;
+    padding: 0 0.5rem;
 }
 
 #container-cart {
@@ -94,7 +95,7 @@ header {
 
 /* PAGINA INDEX */
 main {
-    width: 95%;
+    width: 100%;
     max-width: 1200px;
     margin: auto auto 3rem auto;
     display: flex;
@@ -106,7 +107,7 @@ main {
     display: flex;
     background-color: #0000004d;
     padding: 0.5rem;
-    margin: 0.5rem 3rem;
+    margin: 1rem 0;
     border-radius: 0.5rem;
 }
 
@@ -116,7 +117,7 @@ main {
 }
 
 label {
-    font-size: 0.95rem;
+    font-size: 1rem;
     margin-bottom: 0.3rem;
 }
 
@@ -124,7 +125,7 @@ label {
     background-color: transparent;
     color: #ffffff;
     border: 0.1rem solid #ffffff;
-    font-size: 0.95rem;
+    font-size: 1rem;
     border-radius: 0.3rem;
     padding: 0.12rem 0;
 }
@@ -133,7 +134,7 @@ label {
     align-self: flex-end;
     background-color: #ffffff;
     color: rgb(0, 0, 0);
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 700;
     padding: 0.24rem 0.5rem;
     margin-left: 1rem;
@@ -146,7 +147,7 @@ label {
 }
 
 .caption {
-    margin-bottom: 2rem;
+    margin: 1rem 0;
     font-size: 1.9rem;
     font-weight: 800;
 }
@@ -223,10 +224,11 @@ label {
 /* PAGINA CARRITO */
 #container-cart-products {
     width: 100%;
-    max-width: 50rem;
+    max-width: 30rem;
     background-color: rgba(0, 0, 0, 0.918);
     border-radius: 0.5rem;
     padding: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 #text-cart-empty {
@@ -241,7 +243,7 @@ table {
     width: 100%;
 }
 
-.tr-pad-border {
+.td-pad-border {
     padding-bottom: 0.5REM;
     border-bottom: 0.1rem solid #ffffff;
 }
@@ -252,12 +254,12 @@ td {
 
 .td-img {
     width: 4rem;
+    min-width: 4rem;
 }
 
 .img-cart-product {
     width: 100%;
     border-radius: 0.5rem;
-    border: 0.1rem solid black;
 }
 
 .name-cart-product {
@@ -266,16 +268,23 @@ td {
     font-weight: 600;
 }
 
-.precio-cart-product, .cantidad-cart-product, .subtotal-cart-product{
-    font-size: 1rem;
+.precio-cart-product, .cantidad-cart-product, .subtotal-cart-product {
+    font-size: 0.9rem;
     font-weight: 400;
 }
 
 .cantidad-cart-product {
     display: flex;
-    justify-content:space-evenly
+    justify-content: center;
 }
 
+.cantidad-cart-product span {
+    width: 2rem;
+}
+
+.subtotal-cart-product {
+    width: 5.5rem;
+}
 
 .btn-remove, .btn-suma, .btn-resta {
     color: #ffffff;
@@ -300,7 +309,7 @@ td {
 #btn-clear {
     background-color: #ffffff;
     color: black;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 1rem;
     font-weight: 800;
     border-radius: 0.5rem;
 }

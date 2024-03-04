@@ -52,21 +52,21 @@ function renderCarrito () {
             <td colspan="5" class="name-cart-product">${item.nombre}</td>
         </tr>
         <tr>
-            <td class="td-img tr-pad-border">
+            <td class="td-img td-pad-border">
                 <figure class="container-img-cart-product">
                     <img class="img-cart-product" src="../assets/${item.imagen}" alt="${item.nombre}">
                 </figure>
             </td>
-            <td class="precio-cart-product tr-pad-border">${item.precio}</td>
-            <td class="tr-pad-border">
+            <td class="precio-cart-product td-pad-border">$${item.precio}</td>
+            <td class="td-pad-border">
                 <div class="cantidad-cart-product">
                     <button id="${item.id}" class="btn-resta" type="button">-</button>
                     <span>${item.cantidad}</span>
                     <button id="${item.id}" class="btn-suma" type="button">+</button>
                 </div> 
             </td>
-            <td class="subtotal-cart-product tr-pad-border">${item.subtotal}</td>
-            <td class="tr-pad-border">
+            <td class="td-pad-border subtotal-cart-product">$${item.subtotal}</td>
+            <td class="td-pad-border">
                 <button id="${item.id}" class="btn-remove" type="button">x</button>
             </td>
         </tr>
