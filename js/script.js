@@ -1,5 +1,5 @@
 //Archivo JSON con el array de objetos para renderizar los productos que se pueden agregar la carrito
-const rutaJson = '../data/products-tienda.json';
+const URL = 'https://lucascardozoo.github.io/Segunda-Pre-entrega/data/products.json';
 
 //Para instanciar los productos que se agregan al carrito
 class product {
@@ -43,9 +43,9 @@ function recuperoNombreDeLS () {
 recuperoNombreDeLS();
 
 //Función para hacer la petición al archivo JSON y retorna el array de objetos de los productos o un error
-async function peticion (rutaJson) {
+async function peticion (URL) {
     try {
-        const response = await fetch(rutaJson);
+        const response = await fetch(URL);
         if (!response.ok) {
             throw new Error ( `Error de petición: ${response.status} ${response.statusText}` )
         }
@@ -71,7 +71,7 @@ function sumaCantidadCart () {
 //Botones para agregar al carrito o sumar uno a la cantidad del producto si ya existe y guardar en el Local Storage
 async function addToCardButton () {
     const addButton = document.querySelectorAll(".btnAgregarCarrito");
-    const products = await peticion(rutaJson); 
+    const products = await peticion(URL); 
 
     addButton.forEach(button => {
         button.onclick = (e) => {
@@ -99,7 +99,7 @@ async function addToCardButton () {
 
 //Para renderizar productos que se pueden agregar al carrito, renderiza el array de objetos "products" creado con anteriroidad
 async function renderProducts () {
-    const productos = await peticion(rutaJson); 
+    const productos = await peticion(URL); 
 
     productos.forEach( product => {
         const article = document.createElement("article");
