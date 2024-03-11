@@ -317,3 +317,28 @@ td {
 #btn-clear:hover {
     background-color: #dfdfdf;
 }
+
+
+
+
+
+/* SWEETALERT */
+.container-sweetalert {
+    width: 95%;
+    max-width: 30rem;
+}
+
+.icon-sweetalert {
+    margin-top: 0.7rem;
+}
+
+.title-sweetalert {
+    font-size: 1.1rem;
+    padding: 0;
+    margin: 0;
+}
+
+.btn-sweetalert {
+    padding: 0.4rem 1rem 0.3rem 1rem;
+    margin-top: 0;
+}

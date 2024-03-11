@@ -52,9 +52,7 @@ async function peticion (URL) {
 
         const data = await response.json();
         return data;
-    } catch (err) {
-        console.error(err)
-    }
+    } catch (err) {}
 }
 
 //Para guardar en el Local Storage
@@ -66,6 +64,24 @@ function saveProductLocalStorage () {
 function sumaCantidadCart () {
     let cantidadTotalCart = cart.reduce((acumulador, producto) => acumulador + producto.cantidad, 0);
     cantidadCart.innerHTML = cantidadTotalCart;
+}
+
+//Toastify para aviso de "Agregado al carrito"
+
+function toastifyAddCard () {
+    Toastify({
+        text: "Agregado al carrito",
+        duration: 3000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        gravity: "top",
+        position: "left",
+        stopOnFocus: true,
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+        onClick: function(){}
+    }).showToast();
 }
 
 //Botones para agregar al carrito o sumar uno a la cantidad del producto si ya existe y guardar en el Local Storage
@@ -92,7 +108,8 @@ async function addToCardButton () {
                 cart.push(productToCart);
                 saveProductLocalStorage();
             }
-            sumaCantidadCart();   
+            sumaCantidadCart();
+            toastifyAddCard ();          
         }
     })
 }
