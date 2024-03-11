@@ -1,5 +1,5 @@
 //Archivo JSON con el array de objetos para renderizar los productos que se pueden agregar la carrito
-const URL = 'https://lucascardozoo.github.io/Segunda-Pre-entrega/data/products.json';
+const URL = 'https://lucascardozoo.github.io/entrega-final/data/products.json';
 
 //Para instanciar los productos que se agregan al carrito
 class product {
