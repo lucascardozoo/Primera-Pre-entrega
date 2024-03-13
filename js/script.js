@@ -1,4 +1,4 @@
-//Archivo JSON con el array de objetos para renderizar los productos que se pueden agregar la carrito
+//Archivo JSON con el array de objetos para renderizar los productos que se pueden agregar al carrito. La ruta debería tener dos puntos al principio pero GitHub Pages no encuentra el archivo así, por alguna extraña razón solo encuentra el archivo JSON con un solo punto.
 const rutaJson = "./data/products.json";
 
 //Para instanciar los productos que se agregan al carrito
