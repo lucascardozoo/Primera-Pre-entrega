@@ -1,5 +1,5 @@
 //Archivo JSON con el array de objetos para renderizar los productos que se pueden agregar la carrito
-const URL = 'https://lucascardozoo.github.io/entrega-final/data/products.json';
+const rutaJson = "./data/products.json";
 
 //Para instanciar los productos que se agregan al carrito
 class product {
@@ -43,9 +43,9 @@ function recuperoNombreDeLS () {
 recuperoNombreDeLS();
 
 //Función para hacer la petición al archivo JSON y retorna el array de objetos de los productos o un error
-async function peticion (URL) {
+async function peticion (rutaJson) {
     try {
-        const response = await fetch(URL);
+        const response = await fetch(rutaJson);
         if (!response.ok) {
             throw new Error ( `Error de petición: ${response.status} ${response.statusText}` )
         }
@@ -67,18 +67,17 @@ function sumaCantidadCart () {
 }
 
 //Toastify para aviso de "Agregado al carrito"
-
 function toastifyAddCard () {
     Toastify({
         text: "Agregado al carrito",
-        duration: 3000,
-        destination: "https://github.com/apvarun/toastify-js",
+        duration: 2000,
         newWindow: true,
         gravity: "top",
         position: "left",
         stopOnFocus: true,
         style: {
-          background: "linear-gradient(to right, #00b09b, #96c93d)",
+          background: "#8AAAFA",
+          color: "#151515",
         },
         onClick: function(){}
     }).showToast();
@@ -87,7 +86,7 @@ function toastifyAddCard () {
 //Botones para agregar al carrito o sumar uno a la cantidad del producto si ya existe y guardar en el Local Storage
 async function addToCardButton () {
     const addButton = document.querySelectorAll(".btnAgregarCarrito");
-    const products = await peticion(URL); 
+    const products = await peticion(rutaJson);
 
     addButton.forEach(button => {
         button.onclick = (e) => {
@@ -116,7 +115,7 @@ async function addToCardButton () {
 
 //Para renderizar productos que se pueden agregar al carrito, renderiza el array de objetos "products" creado con anteriroidad
 async function renderProducts () {
-    const productos = await peticion(URL); 
+    const productos = await peticion(rutaJson); 
 
     productos.forEach( product => {
         const article = document.createElement("article");

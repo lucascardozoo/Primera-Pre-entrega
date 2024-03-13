@@ -1,15 +1,15 @@
 /* RESET */
 * {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    text-decoration: none;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none;
 }
 
 body {
     background-image: url(../assets/carbon_fibre.webp);
-    font-family: "Poppins", sans-serif;
-    font-weight: 800;
     color:#ffffff;
 }
 
@@ -19,11 +19,13 @@ body {
 
 /* HEADER */
 header {
-    margin: 1rem 0;
-    padding: 0 1.5rem 0 2rem;
+    padding: 1rem 1.5rem 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    background-image: url(../assets/carbon_fibre.webp);
 }
 
 #container-logo {
@@ -73,7 +75,7 @@ header {
 }
 
 #icon-cart:hover {
-    color: #dfdfdf;
+    color: #c7c7c7;
 }
 
 #count {
@@ -104,7 +106,10 @@ main {
 }
 
 #container-saludo {
+    width: 90%;
+    max-width: 21.37rem;
     display: flex;
+    justify-content: space-between;
     background-color: #0000004d;
     padding: 0.5rem;
     margin: 1rem 0;
@@ -124,16 +129,22 @@ label {
 #user-name {
     background-color: transparent;
     color: #ffffff;
-    border: 0.1rem solid #ffffff;
+    border: 0.1rem solid #ffffff5b;
     font-size: 1rem;
+    width: 100%;
     border-radius: 0.3rem;
     padding: 0.12rem 0;
 }
 
+#user-name:focus {
+    outline: none;
+    border: 0.2rem solid #8AAAFA;
+}
+
 #btn-saludo {
     align-self: flex-end;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
+    background-color: #8AAAFA;
+    color: #151515;
     font-size: 1rem;
     font-weight: 700;
     padding: 0.24rem 0.5rem;
@@ -143,7 +154,7 @@ label {
 }
 
 #btn-saludo:hover {
-    background-color: #dfdfdf;
+    background-color: #6893ff;
 }
 
 .caption {
@@ -153,7 +164,7 @@ label {
 }
 
 #container-products {
-    width: 100%;
+    width: 90%;
     display: grid;
     column-gap: 1.25rem;
     row-gap: 3rem;
@@ -162,8 +173,8 @@ label {
 }
 
 .product {
-    background-color: rgb(0, 0, 0);
-    border-radius: 0.5rem;
+    background-color: #000000;
+    border-radius: 0.7rem;
     display: flex;
     flex-direction: column;
     border: 0.1rem solid white;
@@ -192,29 +203,29 @@ label {
     padding-left: 1rem;
     font-size: 1.2rem;
     font-weight: 500;
+    color: #ddffd6;
 }
 
 .btnAgregarCarrito {
     margin-top: 0.5rem;
-    border: none;
     border-radius: 0.5rem;
-    background-color: white;
-    color: black;
+    border: none;
+    background-color: #8AAAFA;
+    color: #151515;
     width: 100%;
     align-self: center;
     font-size: 1rem;
-    font-weight: 700;
-    border: 0.1rem solid white;
+    font-weight: 800;
     padding: 0.3rem 0;
 }
 
 .btnAgregarCarrito:hover {
-    background-color: #dfdfdf;
+    background-color: #6893ff;
 }
 
 .btnAgregarCarrito:active {
-    background-color: #a0a0a0;
-    border-color: #a0a0a0;
+    background-color: #3582ca;
+    border-color: #3582ca;
 }
 
 
@@ -225,7 +236,7 @@ label {
 #container-cart-products {
     width: 100%;
     max-width: 30rem;
-    background-color: rgba(0, 0, 0, 0.918);
+    background-color: #000000ea;
     border-radius: 0.5rem;
     padding: 0.5rem;
     margin-top: 0.5rem;
@@ -296,6 +307,7 @@ td {
 }
 
 .footer-cart {
+    height: 4.93rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -306,7 +318,14 @@ td {
     font-size: 1.3rem;
 }
 
-#btn-clear {
+#container-btn-cart {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#btn-clear, #btn-finish {
     background-color: #ffffff;
     color: black;
     padding: 0.4rem 1rem;
@@ -316,6 +335,11 @@ td {
 
 #btn-clear:hover {
     background-color: #dfdfdf;
+}
+
+#btn-finish {
+    background-color: #8AAAFA;
+    color: #151515;
 }
 
 
@@ -332,13 +356,18 @@ td {
     margin-top: 0.7rem;
 }
 
-.title-sweetalert {
+.title-clear-sweetalert {
     font-size: 1.1rem;
     padding: 0;
     margin: 0;
 }
 
+.title-finish-sweetalert {
+    font-size: 1.1rem;
+}
+
 .btn-sweetalert {
     padding: 0.4rem 1rem 0.3rem 1rem;
     margin-top: 0;
+    font-weight: 600;
 }

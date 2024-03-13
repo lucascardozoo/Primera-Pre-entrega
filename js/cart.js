@@ -89,42 +89,69 @@ function ifCarritoVacio () {
 }
 ifCarritoVacio();
 
-//Para el boton que dice "Vaciar" en el carrito, borra todo el carrito
+//Función para vaciar el carrito
 function clearCart () {
+    localStorage.removeItem('cart');
+    cantidadCart.innerHTML = 0;
+    total.innerHTML = 'Total: $0';
+    limpiarHTML();
+    cartEmpty.style.display = 'block';
+}
+
+//para el boton que dice "Finalizar", tiene Sweet Alert, confirma compra y borra todo el carrito
+function btnFinish () {
+    const clearButton = document.getElementById("btn-finish");
+    clearButton.onclick = () => {
+        clearCart();
+        Swal.fire({
+            icon: "success",
+            title: "<strong>Compra finalizada</strong>",
+            background: "#000000be",
+            color: "#ffffff",
+            padding: "0.5rem",
+            customClass: {
+                popup: 'container-sweetalert',
+                icon: 'icon-sweetalert',
+                title: 'title-finish-sweetalert',
+                confirmButton: 'btn-sweetalert',
+            },          
+        }) 
+    }
+}
+btnFinish();
+
+//Para el boton que dice "Vaciar" en el carrito, tiene Sweet Alert, borra todo el carrito
+function btnClearCart () {
     const clearButton = document.getElementById("btn-clear");
     clearButton.onclick = () => {
         Swal.fire({
             icon: "question",
-            title: "Estás seguro que deseas vaciar el carrito?",
+            title: "<strong>Estás seguro que deseas vaciar el carrito?</strong>",
             showCancelButton: true,
             confirmButtonText: "Si",
-            background: "#676767",
+            background: "#000000be",
             color: "#ffffff",
-            padding: "0.1rem",
+            padding: "0.5rem",
             customClass: {
                 popup: 'container-sweetalert',
                 icon: 'icon-sweetalert',
-                title: 'title-sweetalert',
+                title: 'title-clear-sweetalert',
                 confirmButton: 'btn-sweetalert',
                 cancelButton: 'btn-sweetalert',
             },          
         }).then((result) => {
             if (result.isConfirmed) {
-                localStorage.removeItem('cart');
-                cantidadCart.innerHTML = 0;
-                total.innerHTML = 'Total: $0';
-                limpiarHTML();
-                cartEmpty.style.display = 'block';
+                clearCart();
                 Swal.fire({
                     icon: "success",
-                    title: "Su carrito fue vaciado exitosamente!",
-                    background: "#676767",
+                    title: "<strong>Su carrito fue vaciado exitosamente!</strong>",
+                    background: "#000000be",
                     color: "#ffffff",
-                    padding: "0.1rem",
+                    padding: "0.5rem",
                     customClass: {
                         popup: 'container-sweetalert',
                         icon: 'icon-sweetalert',
-                        title: 'title-sweetalert',
+                        title: 'title-clear-sweetalert',
                         confirmButton: 'btn-sweetalert',
                         cancelButton: 'btn-sweetalert',
                     },
@@ -133,7 +160,7 @@ function clearCart () {
           });
     }
 }
-clearCart();
+btnClearCart();
 
 //Para guardar en el Local Storage
 function saveProductLocalStorage (toRender) {
@@ -181,7 +208,7 @@ function sumaRestaProduct (e) {
         let toRender = jsonParseLocalStorage();
         const productId = parseInt(e.target.id);
         toRender.forEach( product => {
-            if (product.cantidad === 0) {
+            if (product.cantidad === 1) {
                 btnResta.disabled = true;
             } else if (product.id === productId) {
                 product.cantidad--;
