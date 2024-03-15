@@ -98,15 +98,32 @@ function clearCart () {
     cartEmpty.style.display = 'block';
 }
 
-//para el boton que dice "Finalizar", tiene Sweet Alert, confirma compra y borra todo el carrito
+//Para el boton que dice "Finalizar", tiene Sweet Alert, pide correo para enviar detalles de compra, confirma y borra todo el carrito
 function btnFinish () {
     const clearButton = document.getElementById("btn-finish");
-    clearButton.onclick = () => {
-        clearCart();
-        Swal.fire({
+    clearButton.onclick = async () => {
+        const { value: email } = await Swal.fire({
+            title: "Ingrese un correo para enviarle detalles de compra",
+            input: "email",
+            inputLabel: "Tu correo electrónico",
+            background: "#000000be",
+            confirmButtonColor: "#0062FF",
+            color: "#ffffff",
+            padding: "0.5rem",
+            customClass: {
+                popup: 'container-sweetalert',
+                title: 'title-finish-sweetalert',
+                confirmButton: 'btn-sweetalert',
+                inputLabel: 'inputlabel-sweetalert',
+            }, 
+        });
+        if (email) {
+            Swal.fire({
             icon: "success",
             title: "<strong>Compra finalizada</strong>",
+            text: `Muchas Gracias por su compra! Detalles enviado a: ${email}`,
             background: "#000000be",
+            confirmButtonColor: "#0062FF",
             color: "#ffffff",
             padding: "0.5rem",
             customClass: {
@@ -114,8 +131,11 @@ function btnFinish () {
                 icon: 'icon-sweetalert',
                 title: 'title-finish-sweetalert',
                 confirmButton: 'btn-sweetalert',
-            },          
+            },       
         }) 
+        }
+        clearCart();
+        
     }
 }
 btnFinish();
@@ -129,6 +149,7 @@ function btnClearCart () {
             title: "<strong>Estás seguro que deseas vaciar el carrito?</strong>",
             showCancelButton: true,
             confirmButtonText: "Si",
+            confirmButtonColor: "#0062FF",
             background: "#000000be",
             color: "#ffffff",
             padding: "0.5rem",
@@ -146,6 +167,7 @@ function btnClearCart () {
                     icon: "success",
                     title: "<strong>Su carrito fue vaciado exitosamente!</strong>",
                     background: "#000000be",
+                    confirmButtonColor: "#0062FF",
                     color: "#ffffff",
                     padding: "0.5rem",
                     customClass: {
@@ -220,3 +242,4 @@ function sumaRestaProduct (e) {
     }
 }
 cartContainer.addEventListener('click', sumaRestaProduct);
+

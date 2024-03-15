@@ -47,7 +47,7 @@ async function peticion (rutaJson) {
     try {
         const response = await fetch(rutaJson);
         if (!response.ok) {
-            throw new Error ( `Error de petición: ${response.status} ${response.statusText}` )
+            throw new Error (`Error de petición: ${response.status} ${response.statusText}`);
         }
 
         const data = await response.json();
@@ -136,10 +136,26 @@ async function renderProducts () {
 }
 renderProducts();
 
+//Para Boton "Enviar", saluda con el nombre ingresado por input"
+function validarNombre (nombre) {
+    return new Promise ((resolve, reject) => {
+        if (nombre && nombre.length >= 3) {
+            resolve (nombre);
+        } else {
+            reject (new Error('El nombre debe tener al menos 3 caracteres'));
+        }
+    })
+}
 btnSaludo.onclick = () => {
     if (inputNombre.value) {
-        textSaludo.innerHTML = `Hola ${inputNombre.value}`
-        localStorage.setItem('nombre', inputNombre.value);
+        validarNombre(inputNombre.value)
+        .then(nombreValidado => {
+            textSaludo.innerHTML = `Hola ${nombreValidado}`;
+            localStorage.setItem('nombre', nombreValidado);
+        })
+        .catch ((error) => {
+            textSaludo.innerText = error.message;
+        }) 
     } else {
         textSaludo.innerText = "Debe ingresar su nombre";
     }
