@@ -242,4 +242,3 @@ function sumaRestaProduct (e) {
     }
 }
 cartContainer.addEventListener('click', sumaRestaProduct);
-
